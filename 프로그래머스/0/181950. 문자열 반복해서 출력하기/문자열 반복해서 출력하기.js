@@ -11,11 +11,9 @@ rl.on('line', function (line) {
 }).on('close', function () {
     str = input[0];
     n = Number(input[1]);
-    let conStr = str;
+    let conStr = str.repeat(n)
     
-    for(i=1 ; i< n ; i ++){
-        conStr += str
-    }
+    
     
     console.log(conStr)
 });
