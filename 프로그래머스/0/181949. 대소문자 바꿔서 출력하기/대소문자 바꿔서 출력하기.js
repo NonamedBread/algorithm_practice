@@ -9,15 +9,10 @@ let input = [];
 rl.on('line', function (line) {
     input = [line];
 }).on('close',function(){
-    str = input[0];
-    let temp = ''
-    for(let i = 0 ; i < str.length ; i++){
-     if(str[i]===str[i].toUpperCase()){
-        temp += str[i].toLowerCase();
-     } else{
-         temp += str[i].toUpperCase();
-     }      
-    }
-    console.log(temp)
-    
+    const str = input[0];
+    const regex = /[a-zA-Z]/g;
+    const convertedStr = str.replace(regex, function(match) {
+        return match === match.toUpperCase() ? match.toLowerCase() : match.toUpperCase();
+    });
+    console.log(convertedStr);
 });
