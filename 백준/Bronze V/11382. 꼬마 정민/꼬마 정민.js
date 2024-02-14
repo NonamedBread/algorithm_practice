@@ -4,23 +4,20 @@ const rl = require("readline").createInterface({
 });
 
 let input = [];
-let list = [];
 
 rl.on("line", function (line) {
   input.push(line);
 }).on("close", function () {
-  list = input[0].split(" ").map((el) => parseInt(el));
-
-  const result = solution(list);
+  const result = solution(input);
   console.log(result);
   process.exit();
 });
 
 const solution = (input) => {
-  let result = 0;
+  result = input[0]
+    .split(" ")
+    .map((el) => Number(el))
+    .reduce((acc, cur) => acc + cur, 0);
 
-  for (let i = 0; i < input.length; i++) {
-    result += input[i];
-  }
   return result;
 };
