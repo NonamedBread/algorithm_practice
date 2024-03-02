@@ -13,7 +13,7 @@ rl.on("line", function (line) {
 });
 
 const solution = (input) => {
-  const count = input[0] / 4;
+  const count = Math.floor(input[0] / 4);
   let sol = "";
 
   for (let i = 1; i <= count; i++) {
