@@ -1,2 +1,9 @@
-# algorithm_javascript
-This is an auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+# 알고리즘 공부를 위한 레포지토리
+
+이 레포지토리는 주로 JavaScript를 사용하여 알고리즘 문제를 풀고 있습니다. 알고리즘 공부를 통해 프로그래밍 기술을 향상시키기 위해 공부하고 있습니다.
+
+## 주요 내용
+
+- **알고리즘 문제풀이**: 다양한 알고리즘 문제를 JavaScript로 구현하여 해결합니다.
+- **문제 해결 전략**: 주어진 문제를 해결하기 위한 효율적인 알고리즘과 문제 해결 전략을 공부합니다.
+- **코딩 테스트 대비**: 주요 코딩 테스트 사이트의 문제를 풀어보고, 이를 통해 실전에 대비합니다.
