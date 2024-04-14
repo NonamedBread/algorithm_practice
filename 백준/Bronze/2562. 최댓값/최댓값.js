@@ -11,15 +11,15 @@ rl.on("line", function (line) {
   let max = input[0];
   let index = 0;
 
-  for (let i = 1; i < input.length; i++) {
-    if (max < input[i]) {
-      max = input[i];
-      index = i;
-    }
-  }
+  const result = input.reduce(
+    (max, curr, i) => {
+      return curr > max.value ? { value: curr, index: i } : max;
+    },
+    { value: -Infinity, index: -1 }
+  );
 
-  console.log(max);
-  console.log(index + 1);
+  console.log(result.value); // 최대값
+  console.log(result.index + 1); // 인덱스 (1-based)
 
   process.exit();
 });
