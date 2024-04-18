@@ -8,17 +8,10 @@ const input = [];
 rl.on("line", (line) => {
   input.push(line.split(" "));
 }).on("close", () => {
-  const length = input.length;
+  input.forEach(([a, b]) => {
+    if (b === undefined) return;
 
-  for (let i = 0; i < length; i++) {
-    const [a, b] = input.shift();
-    if (b === undefined) continue;
-
-    const wordLength = b.length;
-    const newWord = [];
-    for (let j = 0; j < wordLength; j++) {
-      newWord.push(b[j].repeat(a));
-    }
-    console.log(newWord.join(""));
-  }
+    const newWord = [...b].map(char => char.repeat(a)).join("");
+    console.log(newWord);
+  });
 });
