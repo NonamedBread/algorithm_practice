@@ -8,12 +8,15 @@ const input = [];
 rl.on("line", (line) => {
   input.push(line.split(" "));
 }).on("close", () => {
-  const length = input.shift()[0]
-  const str = input.shift()[0].split('').map((el) => el.toUpperCase());
-  let result = 0;
+  const length = Number(input[0][0]);
+  const strArr = input[1][0].toUpperCase().split('');
+  const r = BigInt(31); 
+  const M = BigInt(1234567891);
+  let sum = BigInt(0);
 
   for (let i = 0; i < length; i++) {
-    result += (str[i].charCodeAt()-64) * (31 ** i);
+    const charValue = BigInt(strArr[i].charCodeAt(0) - 64);
+    sum = (sum + (charValue * (r ** BigInt(i)))) % M;
   }
-  console.log(result);
+  console.log(sum.toString());
 });
