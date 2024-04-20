@@ -6,23 +6,21 @@ const rl = require("readline").createInterface({
 const input = [];
 
 rl.on("line", (line) => {
-  input.push((line.toLowerCase()));
+  input.push((line.toUpperCase()));
 }).on("close", () => {
-  const str = input.shift().split("");
-  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("")
-  const KeyValueAlphabet = {};
+  let count = new Array(26).fill(0);
+  const str = input[0];
 
-  alphabet.forEach((el) => {
-    KeyValueAlphabet[el] = 0;
-  });
+  for (let i = 0; i < str.length; i++) {
+    count[str.charCodeAt(i) - 65]++;
+  }
 
-  str.map((el) => {
-    KeyValueAlphabet[el] += 1;
-  })
+  let max = Math.max(...count);
 
-
-  const max = Math.max(...Object.values(KeyValueAlphabet));
-  const maxKey = Object.keys(KeyValueAlphabet).filter((key) => KeyValueAlphabet[key] === max);
-
-  console.log(maxKey.length > 1 ? "?" : maxKey[0].toUpperCase());
+  if (count.filter((v) => v === max).length > 1) {
+    console.log("?");
+  }
+  else {
+    console.log(String.fromCharCode(count.indexOf(max) + 65));
+  }
 });
