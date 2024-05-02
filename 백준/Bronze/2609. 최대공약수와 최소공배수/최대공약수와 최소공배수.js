@@ -11,12 +11,11 @@ rl.on("line", (line) => {
   let [a, b] = input[0].map((el) => Number(el)).sort((a, b) => a - b);
   
   const gcd = (a, b) => {
-    while (b !== 0) {
-      let r = a % b;
-      a = b;
-      b = r;
+    if (b === 0) {
+      return a;
+    } else {
+      return gcd(b, a % b);
     }
-    return a;
   }
   const gcdValue = gcd(a, b);
   console.log(gcdValue);
