@@ -1,17 +1,10 @@
 function solution(n) {
-    let answer = 0;
-    let r = 0;
-    let temp = []
+    let reversedBase3 = '';
 
-    while(n !== 0){
-        r = n % 3
-        n = Math.floor(n / 3)
-        temp.push(r)
+    while (n !== 0) {
+        reversedBase3 += (n % 3).toString();
+        n = Math.floor(n / 3);
     }
-    
-    for(let i = 0; i < temp.length ; i ++){
-        answer += temp[i] * (3 ** (temp.length - i - 1))
-    }
-    
-    return answer;
+
+    return parseInt(reversedBase3, 3);
 }
